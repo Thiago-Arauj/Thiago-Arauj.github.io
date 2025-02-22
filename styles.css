@@ -1,10 +1,12 @@
 /* Variáveis Globais */
 :root {
-  --cor-primaria: #3498db;
+  --cor-primaria: #642F6C;
   --cor-secundaria: #2ecc71;
-  --cor-texto: #333;
-  --cor-fundo: #f5f5f5;
-  --fonte-padrao: Arial, sans-serif;
+  --cor-texto: #C9A227;
+  --cor-fundo: #1B1B1B;
+  --lightning: #FF0000;
+  --accent: #D72638;
+  --fonte-padrao: 'eldenFont', sans-serif;
 }
 
 /* Reset CSS */
@@ -29,7 +31,29 @@ body {
   align-items: center;
   background: var(--cor-primaria);
   padding: 15px;
-  color: white;
+  color: var(--cor-texto);
+}
+
+.navbar li{
+  position: relative; /* Adicione isso */
+  display: inline-block;
+}
+
+.navbar li::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0px; /* Inicialmente a largura é zero */
+  height: 2px; /* Altura da barra */
+  background-color: var(--accent); /* Cor da barra */
+}
+
+.navbar li:hover::after{
+  animation-name: expandir-barra;
+  animation-duration: 0.5s;
+  animation-fill-mode : forwards;
 }
 
 .menu {
@@ -42,7 +66,7 @@ body {
 }
 
 .menu a {
-  color: white;
+  color: var(--cor-texto);
   text-decoration: none;
   font-weight: bold;
 }
@@ -50,21 +74,26 @@ body {
 /* Hero Section */
 .hero {
   padding: 50px;
-  background: var(--cor-secundaria);
-  color: white;
+  background-image:url(assets/starscourge.gif);
+  background-size: contain;
+  background-position: center;
+  color: var(--cor-texto);
 }
 
 .btn {
   background: var(--cor-primaria);
-  color: white;
+  color: var(--cor-texto);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  font-family: 'eldenFont';
   font-size: 16px;
 }
 
 .btn:hover {
-  background: #217dbb;
+  background-color: var(--accent);
+  box-shadow: 0 0 20px var(--lightning), 0 0 40px var(--accent);
+  animation: flicker 0.1s infinite alternate, pop-glow 0.3s infinite alternate;
 }
 
 /* Sobre */
@@ -83,10 +112,15 @@ body {
 }
 
 .card {
-  background: white;
+  background: var(--cor-fundo);
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 10px var(--accent);
+}
+
+.card img {
+  width: calc(100% - padding); 
+  height: 200px; 
 }
 
 /* Formulário de Contato */
@@ -109,21 +143,61 @@ input, textarea {
 
 button {
   background: var(--cor-secundaria);
-  color: white;
+  color: var(--cor-texto);
   padding: 10px 15px;
   border: none;
   cursor: pointer;
   font-size: 16px;
 }
 
-button:hover {
-  background: #27ae60;
-}
+
 
 /* Rodapé */
 footer {
   margin-top: 20px;
   padding: 10px;
+  font-family: sans-serif;
   background: var(--cor-primaria);
-  color: white;
+  color: var(--cor-texto);
+}
+
+@media only screen and (max-width :768px) {
+  .hero {
+      padding-top :20px; 
+      padding-bottom :20px; 
+  }
+}
+
+@keyframes flicker {
+  0% { 
+    text-shadow: 0 0 5px var(--lightning), 0 0 10px var(--lightning-alt); 
+    box-shadow: 0 0 15px var(--lightning);
+  }
+  50% { 
+    text-shadow: 0 0 8px var(--lightning), 0 0 15px var(--lightning-alt); 
+    box-shadow: 0 0 25px var(--lightning);
+  }
+  100% { 
+    text-shadow: 0 0 12px var(--lightning), 0 0 20px var(--lightning-alt); 
+    box-shadow: 0 0 35px var(--lightning);
+  }
+}
+
+@keyframes expandir-barra {
+  from { 
+      width :0%; 
+      left :50%;
+      transform :translateX(-50%);
+   }
+   
+   to { 
+       width :100%; 
+       left :0%;
+       transform :translateX(0);
+   }
+}
+
+@font-face {
+  font-family: "eldenFont";
+  src: url(assets/Mantinia-Regular/Mantinia-Regular.otf);
 }

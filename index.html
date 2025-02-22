@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Projeto de site utilizando HTML e CSS avançado.">
-    <title>Meu Site Pessoal</title>
+    <title>Portfolio Thiago</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -13,7 +13,7 @@
     <!-- Cabeçalho -->
     <header>
         <nav class="navbar">
-            <h1 class="logo">Meu Site</h1>
+            <h1 class="logo">Bem-vindo ao meu Portfolio</h1>
             <ul class="menu">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
@@ -25,25 +25,57 @@
     <!-- Seção Principal -->
     <main>
         <section class="hero">
-            <h2>Bem-vindo ao Meu Site</h2>
-            <p>Este é um projeto HTML + CSS para prática.</p>
-            <button class="btn">Saiba Mais</button>
+            <h2>Bem-vindo ao Portfolio</h2>
+            <p>Faça uma boa viagem e "Praise the sun \o/"</p>
+            <br>
+            <a target="_blank" href="https://github.com/Thiago-Arauj">
+                <button class="btn">Saiba Mais</button>
+            </a>
         </section>
 
         <!-- Sobre -->
         <section id="sobre" class="sobre">
             <h2>Sobre Mim</h2>
-            <p>Sou um desenvolvedor apaixonado por tecnologia e design responsivo.</p>
-            <img src="assets/perfil.jpg" alt="Shiba Inu com expressão surpresa, famoso como o meme Doge.">
+            <p>
+                Sou um desenvolvedor focado no back-end e aprendiz na análise de dados. Atualmente sou familiar com as linguagens Python, Java e Julia.
+                <br>Além disso como toda a página sugere um dos meus hobbies é jogar.
+            </p>
+            <img src="assets/perfil.jpg" alt="Foto de Thiago conteplando o sol. Praise the sun \o/">
         </section>
 
         <!-- Projetos -->
         <section id="projetos" class="projetos">
             <h2>Meus Projetos</h2>
             <div class="grid-container">
-                <div class="card">Projeto 1</div>
-                <div class="card">Projeto 2</div>
-                <div class="card">Projeto 3</div>
+                <div class="card">
+                    <h2>Batalha Naval Single player</h2>
+                    <br>
+                    <p>
+                        Um dos meus primeiros projetos (bem feitos) esse jogo funciona no terminal e posiciona os barcos de maneira aleatória no espaço. Além disso ele armazena em quantas jogadas cada pessoa conseguiu concluir o jogo. Clicando no botão abaixo você será redirecionado para o repositório desse projeto.
+                    </p>
+                    <br>
+                    <img src="assets/battleships.jpg" alt="Imagem exemplo do jogo.">
+                    <br>
+                    <br>
+                    <a target="_blank" href="https://github.com/Thiago-Arauj/Battleships">
+                        <button class="btn">Atravesse a neblina</button>
+                    </a>
+                </div>
+                <div class="card">
+                    <h2>NEO_API</h2>
+                    <br>
+                    <p>
+                        Este script Python interage com a API de Near Earth Objects(Objetos Próximos à Terra) da NASA para obter informações sobre asteroides que se aproximam da Terra dentro de um intervalo de datas especificado. 
+                        Ele processa os dados e salva em um arquivo Excel, utilizando programação assíncrona para melhorar o desempenho durante as chamadas de API e processamento.
+                    </p>
+                    <br>
+                    <img src="assets/neoapi.png" alt="Arquivo excel de saída.">
+                    <br>
+                    <br>
+                    <a target="_blank" href="https://github.com/Thiago-Arauj/NEO_API">
+                        <button class="btn">Atravesse a neblina</button>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -55,13 +87,11 @@
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
 
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
-            <button type="submit" class="btn">Enviar</button>
+            <br>
+            <button class="btn" type='button' onclick='enviarEmail()'>Enviar</button>
         </form>
     </section>
 
@@ -79,5 +109,12 @@
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>new window.VLibras.Widget();</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type='text/javascript'>
+        emailjs.init('jHev_Tjv0gLIyc1FL');
+    </script>
+    <script src='script.js'></script>
+
 </body>
 </html>
