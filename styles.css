@@ -35,7 +35,7 @@ body {
 }
 
 .navbar li{
-  position: relative; /* Adicione isso */
+  position: relative;
   display: inline-block;
 }
 
@@ -45,9 +45,9 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 0px; /* Inicialmente a largura é zero */
-  height: 2px; /* Altura da barra */
-  background-color: var(--accent); /* Cor da barra */
+  width: 0px;
+  height: 2px;
+  background-color: var(--accent);
 }
 
 .navbar li:hover::after{
@@ -119,7 +119,7 @@ body {
 }
 
 .card img {
-  width: calc(100% - padding); 
+  width: 80%; 
   height: 200px; 
 }
 
